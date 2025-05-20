@@ -1,0 +1,31 @@
+# Codes for the experiments
+
+* [plotFunctions.jl](plotFunctions.jl): Julia functions for plots in Strong mixing and Linear-Gaussian model (used by [analyseTorusModel.jl](analyseTorusModel.jl) and [analyseLgEstimates.jl](analyseLgEstimates.jl)).
+
+## Strong mixing model
+
+* [torusModel.jl](torusModel.jl): the model definition
+* [runTorusModel.jl](runTorusModel.jl): Julia script that runs a batch of unbiased estimates with the torus model, with parameters given in the command line
+* [torusCommandList.sh](torusCommandList.sh): Shell script that creates command lines for each of the different parameter/time horizon/algorithm combinations. Note: the commands should be run at the main directory, so that outputs get to `out`.
+* [analyseTorusModel.jl](analyseTorusModel.jl): Julia script that generates the plots in the paper from the outputs, after they have been run
+
+## Linear-Gaussian model
+
+* [lgModel.jl](lgModel.jl): the model definition
+* [runLgEstimates.jl](runLgEstimates.jl): Julia script that runs a batch of unbiased estimates with the torus model, with parameters given in the command line
+* [lgEstimatesCommandlist.jl](lgEstimatesCommandlist.sh): Shell script that creates command lines for the first linear-Gaussian model test (Commands must be run at the main directory)
+* [lgEstimates2Commandlist.jl](lgEstimates2Commandlist.sh): Shell script that creates command lines for the second linear-Gaussian model test (Commands must be run at the main directory)
+* [lgEstimates3Commandlist.jl](lgEstimates3Commandlist.sh): Shell script that creates command lines for the third linear-Gaussian model test (Commands must be run at the main directory)
+* [analyseLgEstimates.jl](analyseLgEstimates.jl): Julia script that generates the plots in the paper from the output after running the three scripts above
+
+## Stochastic volatility with leverage
+
+* [sv/msci_switzerland.csv](sv/msci_switzerland.csv): MSCI Switzerland data (`data(MSCISwitzerland)`from R package [AER](https://cran.r-project.org/web/packages/AER/index.html))
+* [sv/svModelGradient.jl](sv/svModelGradient.jl): Model and gradient function definitions
+* [sv/testMsci.jl](sv/testMsci.jl): Common setup for MLE tests
+* [sv/testMsciIIC_Adam.jl](sv/testMsciIIC_Adam.jl): The MLE test run with IIC forward coupling
+* [sv/testMsciJIC_Adam.jl](sv/testMsciJIC_Adam.jl): The MLE test run with IIC forward coupling
+* [sv/testMsciIMC_Adam.jl](sv/testMsciIMC_Adam.jl): The MLE test run with IMC forward coupling
+* [sv/testMsciJMC_Adam.jl](sv/testMsciJMC_Adam.jl): The MLE test run with JMC forward coupling
+* [sv/testMsciPlots.jl](sv/testMsciPlots.jl): Create plots in the paper after running all four `testMsci???_Adam.jl` above
+
