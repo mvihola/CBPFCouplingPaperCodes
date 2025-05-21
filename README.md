@@ -9,10 +9,10 @@ The codes run (at least) on Julia v1.11. Before running the code, you need to in
 
 ```julia
 using Pkg
-Pkg.add("https://github.com/awllee/SimpleSMC.jl.git")
+Pkg.add(PackageSpec(url="https://github.com/awllee/SimpleSMC.jl.git"))
 for p in ("RNGPool", "NonUniformRandomVariateGeneration",
           "SMCExamples", "SequentialMonteCarlo",
-          "LogExpFunctions", "JLD2", "StatsBase",
+          "LogExpFunctions", "JLD2", "StatsBase", "CSV",
           "ProgressMeter", "DataFrames", "ArgParse",
           "LaTeXStrings", "Measures", "CairoMakie")
     Pkg.add(p)
