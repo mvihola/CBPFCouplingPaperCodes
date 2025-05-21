@@ -1,4 +1,4 @@
-using CSV, DataFrames, Dates, Statistics, Plots, LaTeXStrings, Random, JLD2, RNGPool
+using CSV, DataFrames, Dates, Statistics, LaTeXStrings, Random, JLD2, RNGPool
 
 setRNGs(12345)
 Random.seed!(12345)
