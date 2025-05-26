@@ -19,6 +19,7 @@ for p in ("RNGPool", "NonUniformRandomVariateGeneration",
 end
 ```
 
-The source codes of the CCBPF implementation and for the stochastic gradient maximum likelihood estimation are in the folder [src](src).
+The source codes are in the following two folders:
 
-The codes for the experiments in the paper are in [paper-numerics](paper-numerics); see [paper-numerics/README.md](paper-numerics/README.md).
+* [src](src): The generic implementation of coupled conditional backward sampling particle filter and the related stochastic gradient maximum likelihood estimation
+* [paper-numerics](paper-numerics): The codes (and scripts) for reproducing the experiments in the paper; see [paper-numerics/README.md](paper-numerics/README.md).
