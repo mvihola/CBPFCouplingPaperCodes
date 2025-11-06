@@ -32,9 +32,7 @@
 
 ## Calcium fluorescence imaging
 
-Note that the data file `data.3.train.preprocessed.mat` used in the experiments is not provided, but can be obtained from [crcns.org](https://crcns.org/data-sets/methods/cai-3).
-
-Once the file `data.3.train.preprocessed.mat` is placed at `calcium_fluorescence`-folder, the following files need to be run in order to reproduce the calcium imaging experiment:
+Note that the data file `data.3.train.preprocessed.mat` used in the experiments is not provided, but can be obtained from [crcns.org](https://crcns.org/data-sets/methods/cai-3). Once the file `data.3.train.preprocessed.mat` is placed at `calcium_fluorescence` folder, the following files need to be run in order to reproduce the calcium imaging experiment:
 
 * [calcium_fluorescence/cai3_fixed_parameter_estimates.jl](calcium_fluorescence/cai3_fixed_parameter_estimates.jl) Function which calculates the fixed parameter estimates $p$ and $\sigma_F$.
 * [calcium_fluorescence/cai3_learn.jl](calcium_fluorescence/cai3_learn.jl) Function which estimates the rest of the parameters $\sigma_C$, $\tau$, $a$ and $c_0$ using Markovian stochastic approximation with CBPF.
