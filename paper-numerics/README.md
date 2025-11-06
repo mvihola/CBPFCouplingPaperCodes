@@ -1,8 +1,8 @@
 # Codes for the experiments
 
-* [plotFunctions.jl](plotFunctions.jl): Julia functions for plots in Strong mixing and Linear-Gaussian model (used by [analyseTorusModel.jl](analyseTorusModel.jl) and [analyseLgEstimates.jl](analyseLgEstimates.jl)).
+* [plotFunctions.jl](plotFunctions.jl): Julia functions for plots in Barriers on a torus and Linear-Gaussian model (used by [analyseTorusModel.jl](analyseTorusModel.jl) and [analyseLgEstimates.jl](analyseLgEstimates.jl)).
 
-## Strong mixing model
+## Barriers on a torus
 
 * [torusModel.jl](torusModel.jl): the model definition
 * [runTorusModel.jl](runTorusModel.jl): Julia script that runs a batch of unbiased estimates with the torus model, with parameters given in the command line
@@ -30,3 +30,27 @@
 * [sv/testMsciJMC_Adam.jl](sv/testMsciJMC_Adam.jl): The MLE test run with JMC forward coupling
 * [sv/testMsciPlots.jl](sv/testMsciPlots.jl): Create plots in the paper after running all four `testMsci???_Adam.jl` above
 
+## Calcium fluorescence imaging
+
+Note that the data file `data.3.train.preprocessed.mat` used in the experiments is not provided, but can be obtained from [crcns.org](https://crcns.org/data-sets/methods/cai-3).
+
+Once the file `data.3.train.preprocessed.mat` is placed at `calcium_fluorescence`-folder, the following files need to be run in order to reproduce the calcium imaging experiment:
+
+* [calcium_fluorescence/cai3_fixed_parameter_estimates.jl](calcium_fluorescence/cai3_fixed_parameter_estimates.jl) Function which calculates the fixed parameter estimates $p$ and $\sigma_F$.
+* [calcium_fluorescence/cai3_learn.jl](calcium_fluorescence/cai3_learn.jl) Function which estimates the rest of the parameters $\sigma_C$, $\tau$, $a$ and $c_0$ using Markovian stochastic approximation with CBPF.
+* [calcium_fluorescence/cai3_cbpf.jl](calcium_fluorescence/cai3_cbpf.jl)
+Run CBPF smoothing on the calcium imaging data.
+* [calcium_fluorescence/cai3_plots.jl](calcium_fluorescence/cai3_plots.jl) Once the previous script is run, this script produces the figure about CBPF smoothing.
+* [calcium_fluorescence/couplingCommandlist.sh](calcium_fluorescence/couplingCommandlist.sh) Shell script which creates commands to run the IM coupling on the calcium imaging data. 
+* [calcium_fluorescence/analyse_couplings.jl](calcium_fluorescence/analyse_couplings.jl) Once all commands created by `couplingCommandlist.sh` are run, this script produces the figure about couplings.
+
+The scripts above use the following files internally:
+
+* [calcium_fluorescence/cai3_read.jl](calcium_fluorescence/cai3_read.jl) Function to read the data file.
+* [calcium_fluorescence/calcium_fluorescence_model.jl](calcium_fluorescence/calcium_fluorescence_model.jl) The model setup.
+* [calcium_fluorescence/calcium_fluorescence_gradients.jl](calcium_fluorescence/calcium_fluorescence_gradients.jl) Gradients of the model functions (with `Enzyme.jl`)
+* [calcium_fluorescence/calcium_fluorescence_reparam.jl](calcium_fluorescence/calcium_fluorescence_reparam.jl) Reparameterisation functions (for optimisation).
+* [calcium_fluorescence/smcGradientDescent.jl](calcium_fluorescence/smcGradientDescent.jl) Functions implementing Markovian stochastic approximation with CBPF.
+* [calcium_fluorescence/cai3_couplings.jl](calcium_fluorescence/cai3_couplings.jl) Run an individual IMC coupling on the calcium imaging data.
+* [calcium_fluorescence/couplingSites.jl](calcium_fluorescence/couplingSites.jl) Functions for extracting state-dependent couplings.
+* [calcium_fluorescence/common.jl](calcium_fluorescence/common.jl) Helper functions and function which runs CBPF using `SequentialMonteCarlo.jl`.

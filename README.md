@@ -14,7 +14,8 @@ for p in ("RNGPool", "NonUniformRandomVariateGeneration",
           "SMCExamples", "SequentialMonteCarlo",
           "LogExpFunctions", "JLD2", "StatsBase", "CSV",
           "ProgressMeter", "DataFrames", "ArgParse",
-          "LaTeXStrings", "Measures", "CairoMakie")
+          "LaTeXStrings", "Measures", "CairoMakie", 
+          "Distributions", "Enzyme", "ComponentArrays", "MAT")
     Pkg.add(p)
 end
 ```

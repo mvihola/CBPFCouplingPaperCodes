@@ -103,7 +103,7 @@ function SGML(theta0, par0, model, lM, parFromTheta!, addGradLogG!, addGradLogM!
     s
 end
 
-function _SGML_worker!(s, progress)
+function _SGML_worker!(s, progress; gradientEstimate! = _unbiasedGradientEstimate!)
   t_ = time()
   for i = 2:s.iterations
     # Set parameters corresponding to previous theta & calculate transformation derivatives
@@ -111,7 +111,7 @@ function _SGML_worker!(s, progress)
     s.parFromTheta!(s.scratch.par, theta_, s.dtheta)
 
     # Calculate the unbiased gradient estimate
-    @inbounds s.couplingTimes[i] = _unbiasedGradientEstimate!(s)
+    @inbounds s.couplingTimes[i] = gradientEstimate!(s)
 
     # Calculate *negative* gradient:
     s.grad_theta .= -s.g
