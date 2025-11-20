@@ -1,5 +1,7 @@
 # CBPFCouplingPaperCodes
 
+[![DOI](https://zenodo.org/badge/987071903.svg)](https://doi.org/10.5281/zenodo.17660396)
+
 This repository provides an implementation of coupled conditional backward sampling particle filter (CCBPF) algorithms as described in: 
 
 > Joona Karjalainen, Anthony Lee, Sumeetpal S. Singh and Matti Vihola [Mixing time of the conditional backward sampling particle filter](https://arxiv.org/abs/2312.17572), arXiv:2312.17572, 2023.
